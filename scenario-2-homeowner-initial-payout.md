@@ -4,8 +4,8 @@
       participant Homeowner
       CoLife->>Dots: Create User for Homeowner if does not exist
       Dots-->>CoLife: User created
-      CoLife->>Dots: Create a Payout Request
-      Dots-->>CoLife: Payout Request created
+      CoLife->>Dots: Create a Flow with the `payout` step
+      Dots-->>CoLife: Flow created
       CoLife->>Homeowner: Show flow in iFrame?
       Homeowner->>Dots: Submit bank account info
       Dots-->>CoLife: Redirect
@@ -14,6 +14,7 @@
       Dots->>CoLife: Webhook flow success ???
       Dots->>CoLife: Webhook flow failure ???
       Note over CoLife: Wait for flow to complete successfully
+      CoLife->>Dots: Create a transfer to the homeowner
       CoLife->>Dots: Create a Payout to Homeowner from CoLife
       Dots-->>CoLife: Payout created
       CoLife->>Homeowner: Payout is happening
